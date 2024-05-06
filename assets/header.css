@@ -1,0 +1,352 @@
+html{
+  overflow-x: hidden;
+}
+.header {
+  max-width: 1320px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.social-media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #B4B2B1;
+}
+
+.social-media svg {
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+}
+
+.logo-group>img:last-child,
+.logo-group>img:first-child {
+  width: 120px;
+  height: 100%;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  padding: 15px 0;
+}
+
+/* =========================================== menu navigation bar ==================================== */
+
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 1000px;
+  flex-flow: row nowrap;
+}
+
+.main-menu ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.right-menu li,
+.left-menu li {
+  font-family: roboto;
+  font-size: 18px;
+  font-weight: 400;
+  color: #F4FFFF;
+}
+.left-menu a {
+  text-decoration: none;
+  color: #F4FFFF;
+}
+.left-menu .submenu-item ul a::before {
+  content: "- ";
+}
+.right-menu a {
+  text-decoration: none;
+  color: #F4FFFF;
+}
+.submenu-item {
+  cursor: pointer;
+}
+.submenu-item ul li a{
+  color: #999;
+}
+
+.left-menu>ul,
+.right-menu>ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 0;
+}
+
+.login-btn {
+  display: block;
+  background-color: #313C4C;
+  padding: 12px 40px;
+  cursor: pointer;
+}
+
+.login-btn>a {
+  color: white;
+}
+
+/* ============================================= submenu coded here ======================================================================= */
+.submenu-item {
+  position: relative;
+}
+
+.submenu-item>ul {
+  position: absolute;
+  min-width: 300px;
+  margin-top: 5px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-top: 2px solid #0099CC;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .07);
+  display: none;
+}
+
+.submenu-item:hover ul {
+  display: block;
+}
+
+.submenu-item:nth-child(3)>ul {
+  min-width: 200px;
+}
+
+.submenu-item:nth-child(4)>ul {
+  min-width: 120px;
+}
+
+.mobile-menu,
+.logo-group>img:last-child {
+  display: none;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.mobile-menu svg {
+  fill: white;
+}
+
+.submenu-item {
+  padding: 12px 0;
+}
+
+/* =========================== sticky class start here ======================= */
+.sticky .navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 7vmin;
+  background-color: white;
+  box-shadow: 0 3px 30px rgba(0, 0, 0, .07);
+}
+
+.sticky .logo-group>img:last-child {
+  display: block;
+}
+
+.sticky .logo-group>img:first-child {
+  display: none;
+}
+
+.sticky .login-btn {
+  display: block;
+  background-color: #A2A7AE;
+  padding: 15px 40px;
+}
+
+.sticky .right-menu a,
+.sticky .left-menu a {
+  color: #999;
+}
+
+.sticky .left-menu li {
+  color: #999;
+}
+.sticky .login-btn a {
+  color: white;
+}
+
+.right-menu a:hover,
+.left-menu li:hover,
+.left-menu a:hover {
+  color: #0099CC;
+  transition: 0.3s ease;
+}
+
+.login-btn>a:hover {
+  color: white;
+}
+
+/* ============================================================= Mobile navigation ======================================= */
+@media (max-width: 1140px) {
+  .main-menu {
+    position: fixed;
+    background-color: #090D18;
+    left: -100%;
+    bottom: 0;
+    width: 100vw;
+    min-height: 100%;
+    pointer-events: none;
+    transition: 0.3s ease;
+    overflow-y: scroll;
+    z-index: 3;
+  }
+
+  .main-menu {
+    flex-flow: column wrap;
+    justify-content: center;
+    min-width: 100%;
+    row-gap: 35px;
+  }
+
+  .submenu-item {
+    padding: 0;
+  }
+
+  .left-menu>ul,
+  .right-menu>ul {
+    flex-flow: column wrap;
+    gap: 35px;
+  }
+
+  .submenu-item>ul {
+    position: static;
+    min-width: 100%;
+    margin-top: 5px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    display: none;
+  }
+
+  .submenu-item {
+    text-align: center;
+  }
+
+  .login-btn {
+    padding: 12px 80px;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .mobile-menu>svg:last-child {
+    display: none;
+  }
+
+  /* =========================== active class start here ======================= */
+  .active .main-menu {
+    left: 0;
+    pointer-events: visible;
+  }
+
+  .active .mobile-menu>svg:last-child {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 15px;
+  }
+
+  .active .mobile-menu>svg:first-child {
+    display: none;
+  }
+
+  /* =========================== sticky class start here ======================= */
+  .sticky .navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .sticky .logo-group>img:last-child {
+    display: block;
+  }
+
+  .sticky .logo-group>img:first-child {
+    display: none;
+  }
+  .sticky .logo-group>img:last-child {
+    display: block;
+  }
+
+  .sticky .logo-group>img:first-child {
+    display: none;
+  }
+
+  .sticky .login-btn {
+    display: block;
+    background-color: #A2A7AE;
+    padding: 15px 40px;
+  }
+
+  .sticky .right-menu a,
+  .left-menu a {
+    color: #999;
+  }
+
+  .sticky .left-menu li {
+    color: #999;
+  }
+
+  .sticky .login-btn a {
+    color: white;
+  }
+
+  .right-menu a:hover,
+  .left-menu li:hover,
+  .left-menu a:hover {
+    color: #0099CC;
+    transition: 0.3s ease;
+  }
+
+  .login-btn>a:hover {
+    color: white;
+  }
+
+  .sticky .login-btn {
+    background-color: #313C4C;
+    padding: 12px 80px;
+  }
+
+  .sticky .right-menu a {
+    color: white;
+  }
+
+  .sticky .left-menu a {
+    color: #999;
+  }
+
+  .sticky .left-menu li {
+    color: white;
+  }
+
+  .sticky .login-btn a {
+    color: white;
+  }
+
+  .right-menu a:hover,
+  .left-menu li:hover,
+  .left-menu a:hover {
+    color: #0099CC;
+    transition: 0.3s ease;
+  }
+
+  .login-btn>a:hover {
+    color: white;
+  }
+  .sticky .mobile-menu>svg:first-child {
+    fill: #000;
+  }
+
+}
